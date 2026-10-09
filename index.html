@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jenish's Blog | PPSU</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f0f0f 0%,
+          #1a1a2e 50%,
+          #0f0f0f 100%
+        );
+        color: #e0e0e0;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      header {
+        background: rgba(15, 15, 15, 0.9);
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 3px solid #00d4ff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      header h1 {
+        font-size: 2.5em;
+        color: #00d4ff;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .header-info {
+        font-size: 1em;
+        color: #999999;
+        margin: 5px 0;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .intro {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 20px;
+        background: rgba(26, 26, 46, 0.5);
+        border-left: 4px solid #00d4ff;
+        border-radius: 8px;
+      }
+
+      .intro p {
+        font-size: 1.1em;
+        color: #00ff88;
+      }
+
+      .blogs-section {
+        margin-bottom: 50px;
+      }
+
+      .blogs-section h2 {
+        text-align: center;
+        font-size: 2em;
+        color: #00d4ff;
+        margin-bottom: 40px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .blog-card {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 26, 46, 0.8),
+          rgba(15, 15, 35, 0.8)
+        );
+        padding: 30px;
+        border-radius: 10px;
+        border: 2px solid #333333;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        border-color: #00d4ff;
+        box-shadow: 0 12px 30px rgba(0, 212, 255, 0.2);
+      }
+
+      .blog-card h3 {
+        color: #00d4ff;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .blog-date {
+        font-size: 0.85em;
+        color: #666666;
+        margin-bottom: 15px;
+      }
+
+      .blog-card p {
+        color: #00ff88;
+        font-size: 0.95em;
+        line-height: 1.7;
+      }
+
+      .login-section {
+        background: rgba(15, 15, 15, 0.95);
+        padding: 40px;
+        border-radius: 10px;
+        border: 2px solid #00d4ff;
+        max-width: 400px;
+        margin: 50px auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      }
+
+      .login-section h3 {
+        color: #00d4ff;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.5em;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #00ff88;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        background: rgba(30, 30, 40, 0.7);
+        border: 2px solid #333333;
+        color: #e0e0e0;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #00d4ff;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      }
+
+      .form-group input::placeholder {
+        color: #666666;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #00d4ff, #00a8cc);
+        color: #0f0f0f;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .login-btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #666666;
+        border-top: 2px solid #333333;
+        margin-top: 50px;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.8em;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .container {
+          padding: 20px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Jenish's Tech Blog</h1>
+      <div class="header-info">📍 Surat | PPSU College</div>
+      <div class="header-info">AIML & Web Development Enthusiast</div>
+    </header>
+
+    <div class="container">
+      <div class="intro">
+        <p>
+          Welcome to my personal tech blog. Here I share insights and knowledge
+          about Web Development, AI/ML, and Data Structures.
+        </p>
+      </div>
+
+      <div class="blogs-section">
+        <h2>📚 My Blogs</h2>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <h3>Web Development</h3>
+            <div class="blog-date">Published • Technology</div>
+            <p>
+              Web development is the art and science of creating interactive
+              websites. It combines HTML, CSS, and JavaScript to build
+              responsive user interfaces. Modern frameworks like React and Vue
+              have revolutionized how we build web applications, making them
+              faster and more efficient.
+            </p>
+          </div>
+
+          <div class="blog-card">
+            <h3>Artificial Intelligence & Machine Learning</h3>
+            <div class="blog-date">Published • Technology</div>
+            <p>
+              AI and Machine Learning are transforming industries by enabling
+              systems to learn from data. Deep learning, neural networks, and
+              advanced algorithms power modern AI applications. As an AIML
+              student, I explore how these technologies solve real-world
+              problems and create intelligent solutions.
+            </p>
+          </div>
+
+          <div class="blog-card">
+            <h3>C language</h3>
+            <div class="blog-date">Published • Technology</div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
+              odio deserunt molestias? Tempora, natus! Numquam beatae cum quod
+              quas. Odio inventore officia temporibus quisquam vel eaque,
+              eligendi culpa pariatur placeat. Quae cumque facilis at incidunt.
+              Recusandae sapiente eaque quas? Libero facilis beatae sed tenetur
+              nihil.
+            </p>
+          </div>
+
+          <div class="blog-card">
+            <h3>Data Structures</h3>
+            <div class="blog-date">Published • Computer Science</div>
+            <p>
+              Data structures are fundamental to efficient programming.
+              Understanding arrays, linked lists, trees, graphs, and hash tables
+              is crucial for writing optimal code. Proper data structure
+              selection significantly impacts algorithm performance and
+              application scalability.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-section">
+        <h3>Admin Access</h3>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Jenish | PPSU College | All Rights Reserved</p>
+    </footer>
+
+    <script>
+      function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username && password) {
+          alert("Login successful! Welcome " + username);
+          document.querySelector("form").reset();
+        }
+      }
+    </script>
+  </body>
+</html>
